@@ -1,14 +1,30 @@
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
+import About from "./components/About/About";
+import Home from "./components/Home/Home";
+import Contact from "./components/Contact/Contact";
+import Artist from "./components/Artist/Artist";
+import NotFound from "./components/NotFound/NotFound";
+import LayOut from "./components/LayOut/LayOut";
+
+const routes = createBrowserRouter([
+  {
+    path: "",
+    element: <LayOut />,
+    children: [
+      { path: "", element: <Home /> },
+      { path: "about", element: <About /> },
+      { path: "artist", element: <Artist /> },
+      { path: "contact", element: <Contact /> },
+      { path: "*", element: <NotFound /> },
+    ],
+  },
+]);
+
 export default function App() {
   return (
-    <div>
-      App
-      <h6 className="text-3xl text-center  font-bold underline text-yellow-400">
-        Hello world!
-      </h6>
-      <button className="btn text-3xl bg-stone-200  rounded w-96 h-16">
-        increase counter
-      </button>
-    </div>
+    <RouterProvider router={routes}>
+      <div></div>
+    </RouterProvider>
   );
 }
