@@ -25,30 +25,28 @@ export default function Navbar() {
   ];
 
   return (
-    <>
-      <div className=" p-3  bg-fuchsia-900 fixed w-screen">
-        <nav className="nav flex items-center justify-around content-center">
-          <h4 className="logo text-amber-500 text-3xl font-serif ">
-            <Link to="/">Logo</Link>
-          </h4>
-          <ul className="flex align-items content-center justify-between">
-            {links.map((link) => (
-              <li key={link.id} className="m-1">
-                <NavLink
-                  activeClassName="active"
-                  className="bg-slate-300 rounded-md p-2"
-                  to={link.url} // Use link.url instead of link.to
-                >
-                  {link.text}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-          <button className="  bg-yellow-600 text-slate-100 rounded-md p-2 text-center">
-            <Link to="login">Login</Link>
-          </button>
-        </nav>
-      </div>
-    </>
+    <div className="bg-fuchsia-900">
+      <nav className="container mx-auto py-3 flex items-center justify-between">
+        <h4 className="logo text-amber-500 text-3xl font-serif">
+          <Link to="/">Logo</Link>
+        </h4>
+        <ul className="hidden md:flex space-x-4">
+          {links.map((link) => (
+            <li key={link.id}>
+              <NavLink
+                activeClassName="active"
+                className="text-slate-300 hover:text-slate-100 bg-yellow-600rounded-md p-2 text-center"
+                to={link.url}
+              >
+                {link.text}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+        <button className="md:hidden bg-yellow-600 text-slate-100 rounded-md p-2 text-center">
+          Menu
+        </button>
+      </nav>
+    </div>
   );
 }
