@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
@@ -24,6 +25,11 @@ const Navbar = () => {
     },
   ];
 
+  const [toggleMenu, setToggleMenu] = useState(false);
+  const handleToggleMenu = () => {
+    setToggleMenu(!toggleMenu);
+    console.log("toggle menu ", toggleMenu);
+  };
   return (
     <>
       <div className="bg-fuchsia-900">
@@ -35,7 +41,7 @@ const Navbar = () => {
             {links.map((link) => (
               <li key={link.id}>
                 <NavLink
-                  activeClassName="active"
+                  activeclassname="active"
                   className="text-slate-100 capitalize hover:bg-yellow-500 rounded-sm flex items-center justify-center content-center  hover:text-slate-100 bg-yellow-600rounded-md p-2 text-center"
                   to={link.url}
                 >
@@ -44,7 +50,10 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-          <button className="md:hidden bg-yellow-600 text-slate-100 rounded-md p-2 text-center">
+          <button
+            onClick={handleToggleMenu}
+            className="md:hidden bg-yellow-600 text-slate-100 rounded-md p-2 text-center"
+          >
             Menu
           </button>
         </nav>
