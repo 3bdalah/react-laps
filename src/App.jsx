@@ -1,11 +1,12 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
-import About from "./components/About/About";
-import Home from "./components/Home/Home";
-import Contact from "./components/Contact/Contact";
-import Artist from "./components/Artist/Artist";
-import NotFound from "./components/NotFound/NotFound";
+
 import LayOut from "./components/LayOut/LayOut";
+import Home from "./components/Home/Home.jsx";
+import About from "./components/About/About";
+import Artist from "./components/Artist/Artist";
+import Contact from "./components/Contact/Contact";
+import { NotFound } from "./components/NotFound/NotFound";
 
 const routes = createBrowserRouter([
   {

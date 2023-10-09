@@ -1,4 +1,4 @@
-export default function About() {
+const About = () => {
   return (
     <>
       <section className="section-about  p-4 min-h-screen flex flex-col justify-center items-center text-center">
@@ -30,4 +30,6 @@ export default function About() {
       </section>
     </>
   );
-}
+};
+
+export default About;
